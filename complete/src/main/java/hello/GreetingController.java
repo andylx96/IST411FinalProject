@@ -28,8 +28,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Controller
 public class GreetingController extends WebMvcConfigurerAdapter {
 
-    private AddressListModel alm = AddressListModel.readJSONFromFile("JsonUser");
-//        alm.saveJSONToFile("JsonUser")
+
 
     @GetMapping("/greeting")
     public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
@@ -40,50 +39,56 @@ public class GreetingController extends WebMvcConfigurerAdapter {
 
     @GetMapping("/address")
     public String addressForm(Model model) {
-        model.addAttribute("addressModel", new AddressModel());
-        System.out.println(model);
+//        model.addAttribute("addressModel", new AddressModel());
+//thymle        System.out.println(model);
         return "address";
+    }    
+    @GetMapping("/drawing")
+    public String draw(Model model) {
+//        model.addAttribute("addressModel", new AddressModel());
+//thymle        System.out.println(model);
+        return "draw";
     }
 
-    @PostMapping("/address")
-    public String addressSubmit(@Valid @ModelAttribute AddressModel addressModel, BindingResult bindingResult) {
+//    @PostMapping("/address")
+//    public String addressSubmit(@Valid @ModelAttribute AddressModel addressModel, BindingResult bindingResult) {
+//
+//        if (bindingResult.hasErrors()) {
+//            System.out.println("error, not valid");
+//            return "address";
+//        } else {
+//            alm.getAddressArrayList().add(addressModel);
+//            alm.saveJSONToFile("JsonUser");
+//            System.out.println("ArrayListSize is: " + this.alm.getAddressArrayList().size());
+////        
+//
+//            return "result";
+//        }
+//    }
 
-        if (bindingResult.hasErrors()) {
-            System.out.println("error, not valid");
-            return "address";
-        } else {
-            alm.getAddressArrayList().add(addressModel);
-            alm.saveJSONToFile("JsonUser");
-            System.out.println("ArrayListSize is: " + this.alm.getAddressArrayList().size());
-//        
+//    @GetMapping("/list")
+//    public String list(Model model) {
+//        model.addAttribute("alm", alm.getAddressArrayList());
+////        System.out.println(model);
+//        return "list";
+//    }
 
-            return "result";
-        }
-    }
-
-    @GetMapping("/list")
-    public String list(Model model) {
-        model.addAttribute("alm", alm.getAddressArrayList());
-//        System.out.println(model);
-        return "list";
-    }
-
-    @GetMapping("/test")
-    public String test(Model model) {
-        alm.saveJSONToFile("JsonUser");
-        model.addAttribute("string", AddressListModel.serializeAsJSON2(alm).toString());
-//        System.out.println(model);
-        return "test";
-    }
-    
-    
-    @GetMapping("/test2")
-    public String test2(Model model) {
-        alm.saveJSONToFile("JsonUser");
-        model.addAttribute("string", AddressListModel.serializeAsJSON2(alm).asText());
-//        System.out.println(model);
-        return "test";
-    }
+//    @GetMapping("/test")
+//    public String test(Model model) {
+//        alm.saveJSONToFile("JsonUser");
+//        model.addAttribute("string", AddressListModel.serializeAsJSON2(alm).toString());
+////        System.out.println(model);
+//        return "test";
+//    }
+//    
+//    
+//    @GetMapping("/test2")
+//    public String test2(Model model) {
+//        alm.saveJSONToFile("JsonUser");
+//        model.addAttribute("string", AddressListModel.serializeAsJSON2(alm).asText());
+////        System.out.println(model);
+//        return "test";
+//    }
 
 //    @GetMapping("/fw.jpg")
 //    public String img(Model model) {

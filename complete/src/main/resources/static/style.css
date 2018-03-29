@@ -1,0 +1,512 @@
+Rbody {
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+
+.nav {
+    background-color: #595959;
+    color: #ffffff;
+    list-style: none;
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+
+.nav>li {
+    display: inline-block;
+    padding: 0 25px 0 25px;
+}
+
+.nav>li>a {
+    text-decoration: none;
+    color: #ffffff
+}
+
+.nav>li>a:hover {
+    color: #c1c1c1;
+}
+
+h4 {
+    font-family: 'latin_modern_roman_slante10Rg', Georgia;
+    color: red;
+}
+
+h5 {
+    font-family: 'latin_modern_roman_slante10Rg', Georgia;
+    color: red;
+}
+
+h2 {
+    font-family: 'latin_modern_roman_slante10Rg', Georgia;
+    color: red;
+}
+
+.personalInfo {
+    color: royalblue;
+}
+
+.downloadBox {
+    color: white;
+    font: bold 10px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    float: left;
+    width: 200px;
+    position: relative;
+    background-image: url("../images/java-logo.jpg");
+    background-size: cover;
+}
+
+.downloadInfo {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border: 1px solid #000000;
+    width: 200px;
+    word-wrap: break-word;
+    text-align: center;
+    vertical-align: middle;
+    color: black;
+}
+
+.pageMainImg {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.pageIconImg {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.downloadImg {
+    position: relative;
+    width: 200px;
+    border-radius: 80%;
+}
+
+h3 {
+    font-family: 'latin_modern_roman_slante10Rg', Georgia;
+}
+
+h1 {
+    font-family: 'latin_modern_roman_slante10Bd', Georgia;
+}
+
+@font-face {
+    font-family: 'latin_modern_roman_slante10Rg';
+    src: url('../fonts/latinmodernromanslanted_10regular_macroman/lmromanslant10-regular-webfont.eot');
+    src: url('../fonts/latinmodernromanslanted_10regular_macroman/lmromanslant10-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/latinmodernromanslanted_10regular_macroman/lmromanslant10-regular-webfont.woff') format('woff'), url('../fonts/latinmodernromanslanted_10regular_macroman/lmromanslant10-regular-webfont.ttf') format('truetype'), url('../fonts/latinmodernromanslanted_10regular_macroman/lmromanslant10-regular-webfont.svg#latin_modern_roman_slante10Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latin_modern_roman_slante10Bd';
+    src: url('../fonts/latinmodernromanslanted_10bold_macroman/lmromanslant10-bold-webfont.eot');
+    src: url('../fonts/latinmodernromanslanted_10bold_macroman/lmromanslant10-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/latinmodernromanslanted_10bold_macroman/lmromanslant10-bold-webfont.woff') format('woff'), url('../fonts/latinmodernromanslanted_10bold_macroman/lmromanslant10-bold-webfont.ttf') format('truetype'), url('../fonts/latinmodernromanslanted_10bold_macroman/lmromanslant10-bold-webfont.svg#latin_modern_roman_slante10Bd') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.containerImg {
+    position: relative;
+    width: 20%;
+    float: left;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.containerImg:hover .overlay {
+    opacity: 0.7;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.textSmall {
+    color: white;
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.containerImgLong {
+    position: relative;
+    width: 50%;
+    float: left;
+}
+
+.containerImgLong:hover .overlay {
+    opacity: 0.7;
+}
+
+/*@import "compass/css3";
+body {
+    background-color: white;
+    color: #777777;
+    font-family: 'latin_modern_roman_slante10Rg', Georgia;
+    font-size: 16px;
+    font-size: 1.6rem;
+}*/
+
+.main {
+    background-color: white;
+}
+
+.header {
+    background-color: #efefef;
+    border: 1px solid #efefef;
+    border-bottom: 2px solid gainsboro;
+}
+
+.header h1 {
+    color: #ff7729;
+}
+
+.shoot {
+    color: #efefef;
+}
+
+.shoot:hover {
+    color: #00aae3;
+}
+
+h1 span.rock {
+    font-family: 'latin_modern_roman_slante10Rg', Georgia;
+    font-size: 48px;
+    font-size: 4.8rem;
+}
+
+h1 span.paper {
+    font-family: 'latin_modern_roman_slante10Rg', Georgia;
+    font-size: 48px;
+    font-size: 4.8rem;
+}
+
+h1 span.scissors {
+    font-family: 'latin_modern_roman_slante10Rg', Georgia;
+    font-size: 48px;
+    font-size: 4.8rem;
+}
+
+.footer {
+    background-color: #efefef;
+    color: #777777;
+    border-top: 2px solid gainsboro;
+    border-bottom: 2px solid gainsboro;
+}
+
+.footer h2 {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.footer address {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-style: normal;
+}
+
+button.play {
+    border-radius: 10px;
+    border: 4px solid white;
+}
+
+button.play.rock {
+    background: #efefef url("../images/rock.png") no-repeat;
+    background-size: 175px 175px;
+}
+
+button.play.paper {
+    background: #efefef url("../images/paper.png") no-repeat;
+    background-size: 175px 175px;
+}
+
+button.play.scissors {
+    background: #efefef url("../images/scissors.png") no-repeat;
+    background-size: 175px 175px;
+}
+
+button.play:hover {
+    border: 4px solid #00aae3;
+}
+
+button#reset {
+    font-size: 12px;
+    font-size: 1.2rem;
+    color: #777777;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+
+h2#results {
+    color: #444444;
+    font-size: 24px;
+    font-size: 2.4rem;
+}
+
+p {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+.scorebox {
+    background-color: #efefef;
+    border: 4px solid #efefef;
+    border-radius: 10px;
+}
+
+.scorebox h2 {
+    color: #777777;
+    font-weight: 600;
+    font-size: 24px;
+    font-size: 2.4rem;
+}
+
+span#loses,
+span#wins {
+    font-size: 48px;
+    font-size: 4.8rem;
+    color: #00aae3;
+    font-family: "haymakerregular", Helvetica, Arial, sans-serif;
+}
+
+.score-divider span {
+    font-size: 40px;
+    font-size: 4rem;
+    color: #00aae3;
+    font-weight: 200;
+}
+
+div.score-num,
+div.score-divider {
+    font-size: 18px;
+    font-size: 1.8rem;
+    color: #777777;
+    font-weight: 600;
+    text-align: center;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 110px;
+    height: 11rem;
+}
+
+.header h1 {
+    margin: 20px auto;
+}
+
+.main {
+    width: 100%;
+    min-height: 350px;
+    min-height: 35rem;
+    padding-top: 80px;
+}
+
+.footer {
+    width: 100%;
+    min-height: 100px;
+    min-height: 10rem;
+    height: auto;
+    padding: 20px 0;
+}
+
+.footer h2 {
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+
+.container {
+    position: relative;
+    width: 960px;
+    width: 96rem;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.content {
+    width: 630px;
+    width: 63rem;
+    float: left;
+}
+
+.aside {
+    width: 330px;
+    width: 33rem;
+    float: right;
+}
+
+.scorebox {
+    box-sizing: border-box;
+    width: 195px;
+    width: 19.5rem;
+    height: 175px;
+    height: 17.5rem;
+    padding: 5px;
+    margin: 0 auto 15px auto;
+}
+
+.scorebox h2 {
+    margin: 15px 0 10px 10px;
+}
+
+.profile {
+    
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    border-radius: 80%;
+}
+
+.score-num,
+.score-divider {
+    float: left;
+}
+
+.score-num {
+    width: 40%;
+}
+
+.score-divider {
+    width: 20%;
+}
+
+button .play {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 175px;
+    width: 17.5rem;
+    height: 175px;
+    height: 17.5rem;
+    padding: 5px;
+    margin-right: 30px;
+}
+
+button #reset {
+    width: 120px;
+    width: 12rem;
+    height: 35px;
+    height: 3.5rem;
+    line-height: 1em;
+    float: right;
+    margin-right: 105px;
+    border: 0;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 110px;
+    height: 11rem;
+}
+
+.header h1 {
+    margin: 20px auto;
+}
+
+.footer {
+    width: 100%;
+    min-height: 100px;
+    min-height: 10rem;
+    height: auto;
+    padding: 20px 0;
+}
+
+.footer h2 {
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+
+button.play {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 175px;
+    width: 17.5rem;
+    height: 175px;
+    height: 17.5rem;
+    padding: 5px;
+    margin-right: 30px;
+}
+
+button#reset {
+    width: 120px;
+    width: 12rem;
+    height: 35px;
+    height: 3.5rem;
+    line-height: 1em;
+    float: right;
+    margin-right: 105px;
+    border: 0;
+}
+
+.scorebox {
+    box-sizing: border-box;
+    width: 195px;
+    width: 19.5rem;
+    height: 175px;
+    height: 17.5rem;
+    padding: 5px;
+    margin: 0 auto 15px auto;
+}
+
+.scorebox h2 {
+    margin: 15px 0 10px 10px;
+}
+
+div.score-num,
+div.score-divider {
+    float: left;
+}
+
+div.score-num {
+    width: 40%;
+}
+
+div.score-divider {
+    width: 20%;
+}
