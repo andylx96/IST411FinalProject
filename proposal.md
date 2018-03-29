@@ -13,19 +13,20 @@ User can join rooms using a Room ID provide by a host.
 Users can save and share drawings they have created.
 
 Project Schedule -
-    Checkpoint 1
+-Checkpoint 1
 Create Drawing Canvas and Basic Functionalities
-    Checkpoint 2
+-Checkpoint 2
 Incorporate Multi-User Functionalities
-    Checkpoint 3
+-Checkpoint 3
 Create Account Server
 Create User Registration
-    Checkpoint 4
+-Checkpoint 4
 Incorporate Better UI
 Add More Functionalities To Drawing Tools
 
 Project Justification
 Novelty- 
-    This project is different because the idea is different. Having people collaboratively work together to draw on the screen will allow the users to share ideas in a visual context making sharing ideas and thoughts a lot more efficient then just verbal communication. Being able to portray you ideas with your peers and having them provide visual feedback in real-time will prove to be very useful in business practices, classroom use, and creative use. 
+-This project is different because the idea is different. Having people collaboratively work together to draw on the screen will allow the users to share ideas in a visual context making sharing ideas and thoughts a lot more efficient then just verbal communication. Being able to portray you ideas with your peers and having them provide visual feedback in real-time will prove to be very useful in business practices, classroom use, and creative use. 
+
 Complexity - 
-    This project would be a good showcase of my abilities because it would show the use of integrating different libraries together to create a project. Using tools like javascript, jQuery, and AJAX will demonstrated some of the tools that I have learned in class during my time taking IST 411. It will also demonstrate persistent data using the showcase feature and also handling multiple users at the same time. This project would also incorporate the use of a SQL database for user registration and user data.
+-This project would be a good showcase of my abilities because it would show the use of integrating different libraries together to create a project. Using tools like javascript, jQuery, and AJAX will demonstrated some of the tools that I have learned in class during my time taking IST 411. It will also demonstrate persistent data using the showcase feature and also handling multiple users at the same time. This project would also incorporate the use of a SQL database for user registration and user data.
