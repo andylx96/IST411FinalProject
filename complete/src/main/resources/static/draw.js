@@ -49,6 +49,8 @@ function init () {
         });
 
         redraw();
+
+    
     }
 
     canvas.mousedown(function (e) {
@@ -69,6 +71,36 @@ function init () {
         mouseEvent(e);
 
         currentStroke = null;
+        
+//        UPDATE    
+     postPic = strokes;
+//  var postPic = strokes;
+  $.ajax({
+      type: 'POST',
+      url: '/jsonUpdate',
+      data: JSON.stringify(postPic),    
+      contentType: "application/json",
+//      reponseText: respText,
+      success: function(newPic) {
+//          postPic2 = postPic;
+          console.log(postPic);
+          strokes = [];
+          strokes = JSON.parse(newPic);
+//          console.log(newPic);
+            jsonData = JSON.parse(newPic);
+          redraw();
+      },
+      error: function(){
+          alert('error');
+          
+      }
+      
+  });
+//        UPDATE
+        
+        
+        
+        
     }).mousemove(function (e) {
         if (brush.down)
             mouseEvent(e);
