@@ -1,3 +1,8 @@
+var jsonData;
+  var postPic;
+  var newPic;
+  var myJson;
+
 var canvas, ctx,
     brush = {
         x: 0,
@@ -56,7 +61,7 @@ function init () {
         };
 
         strokes.push(currentStroke);
-
+        
         mouseEvent(e);
     }).mouseup(function (e) {
         brush.down = false;
@@ -68,6 +73,30 @@ function init () {
         if (brush.down)
             mouseEvent(e);
     });
+    
+//    
+//  $.ajax({
+//      type: 'POST',
+//      url: '/jsonUpdate',
+//      data: JSON.stringify(strokes),    
+//      contentType: "application/json",
+////      reponseText: respText,
+//      success: function(newPic) {
+////          postPic2 = postPic;
+//          console.log(postPic);
+//          strokes = [];
+//          strokes = JSON.parse(newPic);
+////          console.log(newPic);
+//            jsonData = JSON.parse(newPic);
+//          redraw();
+//      },
+//      error: function(){
+//          alert('error');
+//          
+//      }
+//      
+//  });
+    
 
     $('#save-btn').click(function () {
         window.open(canvas[0].toDataURL());
@@ -77,10 +106,47 @@ function init () {
         strokes.pop();
         redraw();
     });
+    $('#test-btn').click(function () {
+//         window.open(strokes..toDataURL());
+
+
+    strokes = [];
+    console.log(jsonData);
+    strokes = jsonData;
+    redraw();
+    });
 
     $('#clear-btn').click(function () {
         strokes = [];
         redraw();
+    });
+    $('#test2-btn').click(function () {
+  postPic = strokes;
+//  var postPic = strokes;
+  $.ajax({
+      type: 'POST',
+      url: '/jsonUpdate',
+      data: JSON.stringify(postPic),    
+      contentType: "application/json",
+//      reponseText: respText,
+      success: function(newPic) {
+//          postPic2 = postPic;
+          console.log(postPic);
+          strokes = [];
+          strokes = JSON.parse(newPic);
+//          console.log(newPic);
+            jsonData = JSON.parse(newPic);
+          redraw();
+      },
+      error: function(){
+          alert('error');
+          
+      }
+      
+  });
+  
+  
+  
     });
 
     $('#color-picker').on('input', function () {
@@ -92,4 +158,43 @@ function init () {
     });
 }
 
+
+myJson = JSON.stringify(strokes);
+
+
+$(function (){
+    
+    $.ajax({
+        type: 'GET',
+        url: 'test.json',
+        success: function(data) {
+            console.log('sucess', data);
+            
+       jsonData = data;
+       strokes = jsonData;
+        }
+        
+    });
+    
+});
+
+
 $(init);
+setInterval(function(){ 
+$(function (){
+    
+    $.ajax({
+        type: 'GET',
+        url: 'test.json',
+        success: function(data) {
+            console.log('sucess', data);
+            
+       jsonData = data;
+       strokes = jsonData;
+        redraw();
+        }
+        
+    });
+    
+});
+}, 3000);
