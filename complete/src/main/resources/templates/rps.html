@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta title="HTML" content="Basic HTML file">
+        <title> Basic HTML
+        </title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!--<link href="static/css/style.css"-->
+
+        <script src="static/rps.js"></script>
+
+    </head>
+
+
+
+    <body>
+
+        <ul class="nav">
+
+
+            <li><a href="index.html"> Home </a>
+            </li>
+            <li><a href="contacts.html"> Contact </a>
+            </li>
+            <li><a href="crendtials.html"> Credentials </a>
+            </li>
+            <li><a href="projects.html"> Projects </a>
+            </li>
+            <li><a href="tables.html"> AccountTables </a>
+            </li>
+            <li><a href="images.html"> Image </a>
+            </li>
+            <li><a href="https://github.com/andylx96"> Github </a>
+            </li>
+            <li><a href="Code.html"> Code </a>
+            </li>
+            <li><a href="rps.html">RockPaperScissors</a> </li>
+        </ul>
+
+        <header class="header">
+            <div class="container">
+                <h1><span class="rock">Rock</span> <span class="paper">paper</span> <span class="scissors">scissors<span class="shoot"></span> shoot</span>
+                </h1>
+            </div>
+        </header>
+        <div class="main">
+            <div class="container">
+                <section class="content">
+                    <button class="play rock" type="button" onclick="play('rock')"></button>
+                    <button class="play paper" type="button" onclick="play('paper')"></button>
+                    <button class="play scissors" type="button" onclick="play('scissors')"></button>
+                    <div style="clear:both;"></div>
+                    <p><span id="player"></span> <span id="opponent"></span></p>
+                    <h2 id="results"></h2>
+                </section>
+                <aside class="aside">
+                    <div class="scorebox">
+                        <h2>Score</h2>
+                        <div class="score-num"><span id="wins">0</span> <br />wins</div>
+                        <div class="score-divider"><span>-</span></div>
+                        <div class="score-num"><span id="loses">0</span> <br />loses</div>
+                    </div>
+                    <button type="reset" id="reset" onclick="reset()">reset scores</button>
+                </aside>
+            </div>
+        </div>
+    </body>
+
+</html>
