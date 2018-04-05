@@ -11,15 +11,15 @@ The user wants to play fun games with his friends
 The user wants to practice everyday drawings   
 
 Project Schedule -
-Checkpoint 1
-    Learning How to Use Unity for Web Browsers.
+Checkpoint 1 
+-    Learning How to Use Unity for Web Browsers.
 Checkpoint 2
-    Create Menu Pages
-    Create Navigation Pages
-    Create Drawing Canvas and Basic Game Play
+ -   Create Menu Pages
+ -   Create Navigation Pages
+ -   Create Drawing Canvas and Basic Game Play
 Checkpoint 3
-    Create Showcase Display
-    Incorporate Multi-User Game Play
+ -  Create Showcase Display
+ -  Incorporate Multi-User Game Play
     
     
 Project Justification-
