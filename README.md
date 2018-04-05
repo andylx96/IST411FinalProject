@@ -1,39 +1,42 @@
 # IST411FinalProject
 
 
-Proposal Text File.
-
-Project Description - 
-    The project will be a game application that will allow multiple users to sketch on a drawing board. The goal will be to have the users each draw on a drawing canvas in order to draw an object that is given to them. For example, if 5 players where given a cat to draw, each player would draw a cat and then press submit. Once submitted, the users will then vote on which one looks the best. The user’s drawing with the most votes would win that round and the user with the most rounds won will be the winner of the match. Users will also be given the option to showcase their work for anyone to see on the main page. If there is enough time, I would also like to incorporate Machine Learning as a way giving a score on how closely it resembles the object they are trying to draw. 
+Drawing Project
+Project Description - The project will be a drawing board application that will allow multiple users to sketch on a drawing board at the same time. The project will allow a person (or host) to create a room with a given Room ID where other users can also join his room using that ID to connect to the room. Then, the users will all be able to draw on the screen together, weather it is to make a small doodle on screen, share ideas, or provide homework help (kind of like a interactive Khan Academy), user can use the shared drawing canvas board to work together to design new ideas.
 
 Project Design - 
-    The project will integrate Unity for web browsers so users will be able to draw on canvas with the ability to create aesthetic changes easier. The project will also incorporate a SQL database in order to keep account information, account login, and player logistics. *Possibility of TensorFlow.
+The project will utilize javascript, css, html5, and jQuery in order to help create the drawing canvas for people to use on a web browser. The project will also utilized AJAX as a tool in order to track each person’s stokes and update each person's screen when a change has been made. The project will also incorporate a database in order to keep account information, account login, and player history.
 
-Use Case  
-* The user wants to show off his drawing skill to his peers
-* The user wants to play fun games with his friends
-* The user wants to practice everyday drawings   
+Use Case - 
+*   User will register an account with the Firebase database.
+*   User will login into the website using registered accounts. 
+*   User will create a room (or lobby) to begin drawing. 
+*   User will click on the screen to draw on the screen. 
+*   User can join rooms using a Room ID provide by a host. 
+*   Users can save and share drawings they have created.
 
 Project Schedule -
+
 Checkpoint 1
-*    Learning How to Use Unity for Web Browsers.
+* Create Drawing Canvas and Basic Functionalities
 
-Checkpoint 2
-* Create Menu Pages
-* Create Navigation Pages
+Checkpoint 2 
+* Incorporate Multi-User Functionalities
+*   Create Account Server 
+*   Create User Registration
 
-Checkpoint 3
-* Create Drawing Canvas and Basic Game Play
-* Create Showcase Display
+Checkpoint 3 
+* Incorporate Better UI 
+* Pull User Draw History From Database
 
-Checkpoint 4
-* Incorporate Multi-User Game Play
+Project Justification 
 
-  Project Justification-
+Novelty -
+- This project is different because the idea is different. Having people collaboratively work together to draw on the screen will allow the users to share ideas in a visual context making sharing ideas and thoughts a lot more efficient then just verbal communication. Being able to portray you ideas with your peers and having them provide visual feedback in real-time will prove to be very useful in business practices, classroom use, and creative use. 
 
-Novelty-
-The project is different because the gameplay itself is unique. Having players collaboratively work together to draw an object may prove to be more difficult than players may have expected. This is because each player may have different ideas of what an object looks like, and by having each player draw 1 line at a time, it will cause players to blend their different ideas together to draw a unique item. For example, the task would be to draw a plant. One player may start drawing a tree, while another player might be thinking of a flower and start drawing that instead. Now you would have a plant-like object that has some characteristics of a tree and a flower.
+Complexity - 
+- This project would be a good showcase of my abilities because it would show the use of integrating different libraries together to create a project. Using tools like javascript, jQuery, and AJAX will demonstrated some of the tools that I have learned in class during my time taking IST 411. It will also demonstrate persistent data using the showcase feature and also handling multiple users at the same time. This project would also incorporate the use of a firebase database for user registration and user data.
 
-Complexity-
-This project would be a good showcase of my abilities because it would show the use of integrating different libraries together to create a project such as Unity. It will also demonstrate persistent data using the showcase feature and also be handling multiple users at the same time. This project would also incorporate the use of a SQL database for user registration and user data.
 
+A Link To The GitHub Repo
+https://github.com/andylx96/IST411FinalProject
