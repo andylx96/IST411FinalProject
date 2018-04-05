@@ -19,14 +19,16 @@ Project Schedule -
 
 Checkpoint 1
 * Create Drawing Canvas and Basic Functionalities
+* Incoprate Draw, Undo, Clear, and Save Functionalities
+* Added Additional Drawing Tools Like Color Picker
 
 Checkpoint 2 
-* Incorporate Multi-User Functionalities
+*   Incorporate Multi-User Functionalities
 *   Create Account Server 
 *   Create User Registration
 
 Checkpoint 3 
-* Incorporate Better UI 
+* Save Users Drawing To Database
 * Pull User Draw History From Database
 
 Project Justification 
