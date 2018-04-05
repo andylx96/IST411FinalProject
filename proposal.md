@@ -22,7 +22,6 @@ Checkpoint 3
     Incorporate Multi-User Game Play
     
     
-    Project Justification
-
+Project Justification-
 Novelty- The project is different because the gameplay itself is unique. Having players collaboratively work together to draw an object may prove to be more difficult than players may have expected. This is because each player may have different ideas of what an object looks like, and by having each player draw 1 line at a time, it will cause players to blend their different ideas together to draw a unique item. For example, the task would be to draw a plant. One player may start drawing a tree, while another player might be thinking of a flower and start drawing that instead. Now you would have a plant-like object that has some characteristics of a tree and a flower.
 Complexity - This project would be a good showcase of my abilities because it would show the use of integrating different libraries together to create a project such as Unity. It will also demonstrate persistent data using the showcase feature and also be handling multiple users at the same time. This project would also incorporate the use of a SQL database for user registration and user data.
