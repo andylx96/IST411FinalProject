@@ -11,12 +11,39 @@
             <button id="undo-btn">Undo</button>
             <button id="clear-btn">Clear</button>           
             <button id="test-btn">test</button>       
-            <button id="test2-btn">tes2t</button>
+            <button id="test2-btn">test2</button>
+            <button id="test3-btn">test3</button>
+            <button id="test4-btn">test4</button>
             <input type="color" id="color-picker"></input>
             <input type="range" id="brush-size" min="1" max="50" value="10"></input>
         </div>
 
         <canvas id="draw"></canvas>
+        
+        
+        
+ 
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD7lQAINOU89vzFzxeJhmF71N5G09M5DzQ",
+    authDomain: "ist440-1f824.firebaseapp.com",
+    databaseURL: "https://ist440-1f824.firebaseio.com",
+    projectId: "ist440-1f824",
+    storageBucket: "ist440-1f824.appspot.com",
+    messagingSenderId: "748820595458"
+  };
+  firebase.initializeApp(config);
+</script>
+
+  
+
+        
+        
+        
+        
+        
         <link href="test.json"> </link>
         <script src="jquery.min.js"></script>
         <script src="draw.js"></script>

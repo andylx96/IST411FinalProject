@@ -52,6 +52,14 @@ public class GreetingController extends WebMvcConfigurerAdapter {
 //thymle        System.out.println(model);
         return "draw";
     }
+    
+    
+    @GetMapping("/logingin")
+    public String login(Model model) {
+//        model.addAttribute("addressModel", new AddressModel());
+//thymle        System.out.println(model);
+        return "logingin";
+    }
 
 //    @ResponseBody
 //    @RequestMapping(value="/jsonUpdate", method=RequestMethod.POST)

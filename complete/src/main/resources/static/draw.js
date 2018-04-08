@@ -1,20 +1,53 @@
+var currentUserID;
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+
+
+
+        var user = firebase.auth().currentUser;
+
+        if (user != null) {
+
+console.log(user.uid)
+currentUserID = user.uid;
+        }
+
+    } else {
+        // No user is signed in.
+        window.location.replace("http://localhost:8080/logingin");
+
+
+    }
+});
+
+
+
+
+
+
+
+
+
+
 var jsonData;
-  var postPic;
-  var newPic;
-  var myJson;
+var postPic;
+var newPic;
+var myJson;
 
 var canvas, ctx,
-    brush = {
-        x: 0,
-        y: 0,
-        color: '#000000',
-        size: 10,
-        down: false,
-    },
-    strokes = [],
-    currentStroke = null;
+        brush = {
+            x: 0,
+            y: 0,
+            color: '#000000',
+            size: 10,
+            down: false,
+        },
+        strokes = [],
+        currentStroke = null;
 
-function redraw () {
+function redraw() {
     ctx.clearRect(0, 0, canvas.width(), canvas.height());
     ctx.lineCap = 'round';
     for (var i = 0; i < strokes.length; i++) {
@@ -31,7 +64,7 @@ function redraw () {
     }
 }
 
-function init () {
+function init() {
     canvas = $('#draw');
     canvas.attr({
         width: window.innerWidth,
@@ -39,7 +72,7 @@ function init () {
     });
     ctx = canvas[0].getContext('2d');
 
-    function mouseEvent (e) {
+    function mouseEvent(e) {
         brush.x = e.pageX;
         brush.y = e.pageY;
 
@@ -50,7 +83,7 @@ function init () {
 
         redraw();
 
-    
+
     }
 
     canvas.mousedown(function (e) {
@@ -63,7 +96,7 @@ function init () {
         };
 
         strokes.push(currentStroke);
-        
+
         mouseEvent(e);
     }).mouseup(function (e) {
         brush.down = false;
@@ -71,41 +104,41 @@ function init () {
         mouseEvent(e);
 
         currentStroke = null;
-        
+
 //        UPDATE    
-     postPic = strokes;
+        postPic = strokes;
 //  var postPic = strokes;
-  $.ajax({
-      type: 'POST',
-      url: '/jsonUpdate',
-      data: JSON.stringify(postPic),    
-      contentType: "application/json",
+        $.ajax({
+            type: 'POST',
+            url: '/jsonUpdate',
+            data: JSON.stringify(postPic),
+            contentType: "application/json",
 //      reponseText: respText,
-      success: function(newPic) {
+            success: function (newPic) {
 //          postPic2 = postPic;
-          console.log(postPic);
-          strokes = [];
-          strokes = JSON.parse(newPic);
+                console.log(postPic);
+                strokes = [];
+                strokes = JSON.parse(newPic);
 //          console.log(newPic);
-            jsonData = JSON.parse(newPic);
-          redraw();
-      },
-      error: function(){
-          alert('error');
-          
-      }
-      
-  });
+                jsonData = JSON.parse(newPic);
+                redraw();
+            },
+            error: function () {
+                alert('error');
+
+            }
+
+        });
 //        UPDATE
-        
-        
-        
-        
+
+
+
+
     }).mousemove(function (e) {
         if (brush.down)
             mouseEvent(e);
     });
-    
+
 //    
 //  $.ajax({
 //      type: 'POST',
@@ -128,7 +161,7 @@ function init () {
 //      }
 //      
 //  });
-    
+
 
     $('#save-btn').click(function () {
         window.open(canvas[0].toDataURL());
@@ -142,10 +175,10 @@ function init () {
 //         window.open(strokes..toDataURL());
 
 
-    strokes = [];
-    console.log(jsonData);
-    strokes = jsonData;
-    redraw();
+        strokes = [];
+        console.log(jsonData);
+        strokes = jsonData;
+        redraw();
     });
 
     $('#clear-btn').click(function () {
@@ -153,33 +186,59 @@ function init () {
         redraw();
     });
     $('#test2-btn').click(function () {
-  postPic = strokes;
+        postPic = strokes;
 //  var postPic = strokes;
-  $.ajax({
-      type: 'POST',
-      url: '/jsonUpdate',
-      data: JSON.stringify(postPic),    
-      contentType: "application/json",
+        $.ajax({
+            type: 'POST',
+            url: '/jsonUpdate',
+            data: JSON.stringify(postPic),
+            contentType: "application/json",
 //      reponseText: respText,
-      success: function(newPic) {
+            success: function (newPic) {
 //          postPic2 = postPic;
-          console.log(postPic);
-          strokes = [];
-          strokes = JSON.parse(newPic);
+                console.log(postPic);
+                strokes = [];
+                strokes = JSON.parse(newPic);
 //          console.log(newPic);
-            jsonData = JSON.parse(newPic);
-          redraw();
-      },
-      error: function(){
-          alert('error');
-          
-      }
-      
-  });
-  
-  
-  
+                jsonData = JSON.parse(newPic);
+                redraw();
+            },
+            error: function () {
+                alert('error');
+
+            }
+
+        });
+
+
     });
+
+
+    $('#test3-btn').click(function () {
+
+        //
+        var firebaseRef = firebase.database().ref();
+        firebaseRef.child(currentUserID).set("someValue");
+        console.log("pushing");
+        //
+    });
+        $('#test4-btn').click(function () {
+
+//        //
+//        var firebaseRef = firebase.database().ref();
+//        firebaseRef.child(currentUserID).child("images").set(canvas[0].toDataURL());
+//        console.log("pushing");
+//        //
+
+       //
+        var firebaseRef = firebase.storage().ref();
+        var ref= firebaseRef.child(currentUserID).child("images");
+        ref.put(canvas[0].toDataURL());
+            console.log("pushing");
+        //
+
+    });
+    
 
     $('#color-picker').on('input', function () {
         brush.color = this.value;
@@ -194,39 +253,39 @@ function init () {
 myJson = JSON.stringify(strokes);
 
 
-$(function (){
-    
+$(function () {
+
     $.ajax({
         type: 'GET',
         url: 'test.json',
-        success: function(data) {
+        success: function (data) {
             console.log('sucess', data);
-            
-       jsonData = data;
-       strokes = jsonData;
+
+            jsonData = data;
+            strokes = jsonData;
         }
-        
+
     });
-    
+
 });
 
 
 $(init);
-setInterval(function(){ 
-$(function (){
-    
-    $.ajax({
-        type: 'GET',
-        url: 'test.json',
-        success: function(data) {
-            console.log('sucess', data);
-            
-       jsonData = data;
-       strokes = jsonData;
-        redraw();
-        }
-        
+setInterval(function () {
+    $(function () {
+
+        $.ajax({
+            type: 'GET',
+            url: 'test.json',
+            success: function (data) {
+                console.log('sucess', data);
+
+                jsonData = data;
+                strokes = jsonData;
+                redraw();
+            }
+
+        });
+
     });
-    
-});
 }, 3000);
