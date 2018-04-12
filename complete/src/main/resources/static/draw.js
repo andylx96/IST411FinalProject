@@ -64,36 +64,6 @@ function redraw() {
     }
 }
 
-function post(){
-    
-//        UPDATE    
-//        postPic = strokes;
-//  var postPic = strokes;
-        $.ajax({
-            type: 'POST',
-            url: '/jsonUpdate',
-            data: JSON.stringify(strokes),
-            contentType: "application/json",
-//      reponseText: respText,
-            success: function (newPic) {
-//          postPic2 = postPic;
-                console.log(strokes);
-                strokes = [];
-                strokes = JSON.parse(newPic);
-//          console.log(newPic);
-                jsonData = JSON.parse(newPic);
-                redraw();
-            },
-            error: function () {
-                alert('error');
-
-            }
-
-        });
-//        UPDATE
-
-}
-
 function init() {
     canvas = $('#draw');
     canvas.attr({
@@ -200,7 +170,6 @@ function init() {
     $('#undo-btn').click(function () {
         strokes.pop();
         redraw();
-        post();
     });
     $('#test-btn').click(function () {
 //         window.open(strokes..toDataURL());
@@ -215,7 +184,6 @@ function init() {
     $('#clear-btn').click(function () {
         strokes = [];
         redraw();
-        post();
     });
     $('#test2-btn').click(function () {
         postPic = strokes;

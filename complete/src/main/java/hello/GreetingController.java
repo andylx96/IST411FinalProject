@@ -94,9 +94,9 @@ public class GreetingController extends WebMvcConfigurerAdapter {
     public String postRequest(@RequestBody String string) {
 //        System.out.println("HI");
     JsonNode actualObj = null;
-//        System.out.println("ALOLOL");
-//        System.out.println(string);
-//        System.out.println("LOL2");
+        System.out.println("ALOLOL");
+        System.out.println(string);
+        System.out.println("LOL2");
         ObjectMapper mapper = new ObjectMapper();
         try {
             actualObj = mapper.readTree(string);
@@ -108,9 +108,9 @@ public class GreetingController extends WebMvcConfigurerAdapter {
         String tempString = "";
         Scanner sc;
         
-//        System.out.println("LOL3");
-//        saveToJSON(actualObj, tmpDir);
-//        System.out.println("lol3 end");
+        System.out.println("LOL3");
+        saveToJSON(actualObj, tmpDir);
+        System.out.println("lol3 end");
         
         
         try {
