@@ -10,8 +10,8 @@
             <button id="save-btn">Save</button>
             <button id="undo-btn">Undo</button>
             <button id="clear-btn">Clear</button>           
-            <!--<button id="test-btn">Toggle On Listener</button>-->       
-            <!--<button id="test2-btn">test2</button>-->
+            <button id="popupsave-btn">Save Project</button>       
+            <button id="popupload-btn">Load Project</button>
             <!--<button id="test3-btn">Update Firebase</button>-->
             <button id="test4-btn">Save Image To Account</button>
             
@@ -40,7 +40,38 @@
       <button  id="joinroom-btn">Join Room</button>
       
     </div>
+</div>
     
+    
+    
+    <div id="modal-wrapper2" class="modal">
+  
+    <div class="imgcontainer2">
+      <span onclick="document.getElementById('modal-wrapper2').style.display='none'" class="close" title="Close PopUp">&times;</span>
+      <!--<img src="1.png" alt="Avatar" class="avatar">-->
+      <h1 style="text-align:center">Enter Project Name</h1>
+    </div>
+
+    <div class="container">
+      <input type="text" placeholder="Save Project Name" name="savename" id="savenametext"/>  
+      <button  id="saveproject-btn">Save Project</button>
+      
+    </div>
+       </div>
+        
+    <div id="modal-wrapper3" class="modal">
+  
+    <div class="imgcontainer3">
+      <span onclick="document.getElementById('modal-wrapper3').style.display='none'" class="close" title="Close PopUp">&times;</span>
+      <!--<img src="1.png" alt="Avatar" class="avatar">-->
+      <h1 style="text-align:center">Enter Project Name</h1>
+    </div>
+
+    <div class="container">
+      <input type="text" placeholder="Load Project Name" name="loadname" id="loadnametext"/>  
+      <button  id="loadproject-btn">Load Project</button>
+      
+    </div>
     
   
 </div>
