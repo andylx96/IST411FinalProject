@@ -1,5 +1,6 @@
 var currentUserID;
 var currentUser;
+var temp2;
 
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -170,6 +171,47 @@ $('#modal-wrapper2').css({ display: "block" });
     
             $('#popupload-btn').click(function() {
       
+      
+//
+
+  
+       var firebaseRef = firebase.database().ref();
+        firebaseRef.child(currentUser).once('value', function(snapshot) {
+            
+            var temp = [];
+            
+            temp = snapshot.val();
+             
+             temp2 = snapshot;
+             
+             
+             
+             
+             snapshot.forEach(function(childSnapshot) {
+      var key = childSnapshot.key; // "ada"
+console.log(key);
+
+       $('#h4list').text($('#h4list').text() + key + " \n ");
+      // Cancel enumeration
+    });
+             
+             
+             
+             
+            if (temp == null) {
+        alert('Project Not Found');
+            }else{
+                
+         
+            
+            }
+
+
+          
+        });
+//
+
+      
 $('#modal-wrapper3').css({ display: "block" });
 
 
@@ -211,6 +253,9 @@ $('#modal-wrapper3').css({ display: "block" });
     
     
      $('#loadproject-btn').click(function() {
+
+
+
 
 
  var loadName = $('#loadnametext').val();
@@ -276,10 +321,46 @@ $('#modal-wrapper').css({ display: "block" });
 
     $('#test3-btn').click(function() {
 
-        var firebaseRef = firebase.database().ref();
-        firebaseRef.child(currentUserID).child("currentSession").set(strokes);
-        console.log("pushing");
+      
+      
+       var firebaseRef = firebase.database().ref();
+        firebaseRef.child(currentUser).once('value', function(snapshot) {
+            
+            var temp = [];
+            
+            temp = snapshot.val();
+             
+             temp2 = snapshot;
+             
+             
+             
+             
+             snapshot.forEach(function(childSnapshot) {
+      var key = childSnapshot.key; // "ada"
+console.log(key);
+
+       $('#h4list').text($('#h4list').text() + key + " \n ");
+      // Cancel enumeration
     });
+             
+             
+             
+             
+            if (temp == null) {
+        alert('Project Not Found');
+            }else{
+                
+         
+            
+            }
+
+
+          
+        });
+ 
+      
+    });
+    
     $('#test4-btn').click(function() {
 
         var firebaseRef = firebase.storage().ref();
