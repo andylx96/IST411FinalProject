@@ -144,7 +144,12 @@ function init() {
     });
 
     $('#save-btn').click(function() {
-        window.open(canvas[0].toDataURL());
+        window.open(canvas[0].toDataURL("image/png"));
+        
+//        canvas[0].toBlob(function(blob) {
+//    saveAs(blob, "pretty image.png");
+//});
+//        canvas.toDataURL;
     });
 
     $('#undo-btn').click(function() {

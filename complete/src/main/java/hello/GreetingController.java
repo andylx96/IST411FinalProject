@@ -61,6 +61,15 @@ public class GreetingController extends WebMvcConfigurerAdapter {
         return "logingin";
     }
 
+        
+    @GetMapping("/viewimages")
+    public String viewimg(Model model) {
+//        model.addAttribute("addressModel", new AddressModel());
+//thymle        System.out.println(model);
+        return "viewimg";
+    }
+
+    
 //    @ResponseBody
 //    @RequestMapping(value="/jsonUpdate", method=RequestMethod.POST)
 //    public String postRequest(@RequestBody String string) {
