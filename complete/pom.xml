@@ -8,6 +8,8 @@
     <version>0.1.0</version>
 
 
+ <packaging>war</packaging>
+	<description>Demo project</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -57,4 +59,3 @@
 
 
 </project>
- <packaging>war</packaging>

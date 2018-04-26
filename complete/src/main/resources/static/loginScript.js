@@ -1,3 +1,6 @@
+
+
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -60,4 +63,13 @@ function create_account(){
 
 function logout(){
   firebase.auth().signOut();
+}
+
+
+function startDraw(){
+ var t =window.location.href;
+t = t.substring(0, t.lastIndexOf("/") );
+        window.location.replace(t+"/drawing");
+
+
 }

@@ -2,6 +2,7 @@ var currentUserID;
 var currentUser;
 var temp2;
 
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
@@ -24,7 +25,13 @@ toggleListener();
 
     } else {
         // No user is signed in.
-        window.location.replace("http://localhost:8080/logingin");
+        
+        
+var t =window.location.href;
+t = t.substring(0, t.lastIndexOf("/") );
+        window.location.replace(t+"/logingin");
+
+
 
 
     }
@@ -171,7 +178,12 @@ $('#modal-wrapper2').css({ display: "block" });
     
             $('#popupload-btn').click(function() {
       
-      
+       if( $('.row').length )         // use this if you are using class to check
+{
+     // it exists
+     
+       $('.row').remove();
+}
 //
 
   
@@ -191,9 +203,31 @@ $('#modal-wrapper2').css({ display: "block" });
       var key = childSnapshot.key; // "ada"
 console.log(key);
 
-       $('#h4list').text($('#h4list').text() + key + " \n ");
+if((key.toString().trim() != "currentSession")&&(key.toString().trim() != "imageURL")){
+           
+    var currentRow;
+
+            currentRow = document.createElement("div");
+            $(currentRow).addClass("row");
+           
+            $("#listofprojects").append(currentRow);
+//        }
+        var col = document.createElement("div");
+//        $(col).addClass("col-lg-4");
+        var projectname = document.createElement("h4");
+        projectname.innerHTML= key; 
+//        $(projectname).addClass("projectname");
+//        var p = document.createElement("p");
+//        $(p).html(key);
+//        $(p).addClass("contentCaption");
+        $(col).append(projectname);
+//        $(col).append(p);
+        $(currentRow).append(col);
+    }
+       
       // Cancel enumeration
-    });
+  }
+    );
              
              
              
@@ -321,43 +355,52 @@ $('#modal-wrapper').css({ display: "block" });
 
     $('#test3-btn').click(function() {
 
+
+var t =window.location.href;
+t = t.substring(0, t.lastIndexOf("/") );
+
+
+//        window.location.replace("/loginginv");
+        window.location.replace(t+"/viewimages");
+
+
       
-      
-       var firebaseRef = firebase.database().ref();
-        firebaseRef.child(currentUser).once('value', function(snapshot) {
-            
-            var temp = [];
-            
-            temp = snapshot.val();
-             
-             temp2 = snapshot;
-             
-             
-             
-             
-             snapshot.forEach(function(childSnapshot) {
-      var key = childSnapshot.key; // "ada"
-console.log(key);
-
-       $('#h4list').text($('#h4list').text() + key + " \n ");
-      // Cancel enumeration
-    });
-             
-             
-             
-             
-            if (temp == null) {
-        alert('Project Not Found');
-            }else{
-                
-         
-            
-            }
-
-
-          
-        });
- 
+//      
+//       var firebaseRef = firebase.database().ref();
+//        firebaseRef.child(currentUser).once('value', function(snapshot) {
+//            
+//            var temp = [];
+//            
+//            temp = snapshot.val();
+//             
+//             temp2 = snapshot;
+//             
+//             
+//             
+//             
+//             snapshot.forEach(function(childSnapshot) {
+//      var key = childSnapshot.key; // "ada"
+//console.log(key);
+//
+//       $('#h4list').text($('#h4list').text() + key + " \n ");
+//      // Cancel enumeration
+//    });
+//             
+//             
+//             
+//             
+//            if (temp == null) {
+//        alert('Project Not Found');
+//            }else{
+//                
+//         
+//            
+//            }
+//
+//
+//          
+//        });
+// 
       
     });
     
@@ -367,8 +410,7 @@ console.log(key);
 
         var name = (new Date()).getTime() + ".png";
 
-        var ref = firebaseRef.child(currentUserID).child(name);
-
+        var ref = firebaseRef.child(currentUser).child(name);
 
 
 
@@ -383,9 +425,19 @@ console.log(key);
                 console.log("Saved to " + url);
 
 
+  var firebaseDataRef = firebase.database().ref();
+        firebaseDataRef.child(currentUser).child("imageURL").push({
+            caption:name,
+            url: url,
+            user: currentUser
+        });
+        console.log("pushingURL");
+
 //                $('#testImg').style.height = '400px';
 
                 $("#testimg").attr("src",url);
+                
+                
 
             });
         });

@@ -1,7 +1,20 @@
 var currentUserID;
-
+var dataload;
+var temp;
+var temp2;
 
 $(document).ready(function(){
+   
+  $('#back-btn').click(function() {
+    
+    
+var t =window.location.href;
+t = t.substring(0, t.lastIndexOf("/") );
+        window.location.replace(t+"/drawing");
+
+    });
+       
+   
    
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -24,7 +37,10 @@ queryDatabase();
 
     } else {
         // No user is signed in.
-        window.location.replace("http://localhost:8080/logingin");
+var t =window.location.href;
+t = t.substring(0, t.lastIndexOf("/") );
+        window.location.replace(t+"/logingin");
+
 
 
     }
@@ -34,16 +50,23 @@ queryDatabase();
 });
 
 function queryDatabase(){
-//    var userId = currentUserID;
-// firebase.database().ref(userId).once('value').then(function(snapshot) {
-//  
-//  
-//  
-//});
-    
-    
+  
+  
+      
+       var firebaseRef = firebase.database().ref();
+        firebaseRef.child(currentUserID).child("imageURL").once('value', function(snapshot) {
+            
+      
+      var PostObject = snapshot.val();
+      console.log(PostObject);
+      
+      if(PostObject != null){
+      var keys = Object.keys(PostObject);
+      
     var currentRow;
-    for (var i = 0; i < 9; i ++){
+    for (var i = 0; i < keys.length; i ++){
+        var currentObject = PostObject[keys[i]];
+       
         if(i %3 == 0){
             currentRow = document.createElement("div");
             $(currentRow).addClass("row");
@@ -52,16 +75,22 @@ function queryDatabase(){
         var col = document.createElement("div");
         $(col).addClass("col-lg-4");
         var image = document.createElement("img");
-        image.src = "https://cdn2.techadvisor.co.uk/cmsdata/features/3614881/Android_thumb800.jpg";
+        image.src = currentObject.url;
         $(image).addClass("contentImage");
         var p = document.createElement("p");
-        $(p).html("Caption");
+        $(p).html(currentObject.caption);
         $(p).addClass("contentCaption");
         $(col).append(image);
         $(col).append(p);
         $(currentRow).append(col);
-    }
-    
+        
+              }
+          }
+          if(PostObject == null){
+              alert("No Saved Images To View");
+          }
+        });
+
 }
 
 
