@@ -17,19 +17,19 @@ firebase.auth().onAuthStateChanged(function(user) {
             currentUserID = user.uid;
             currentUser = user.uid;
         }
-        
-        
-        
-toggleListener();
-        
+
+
+
+        toggleListener();
+
 
     } else {
         // No user is signed in.
-        
-        
-var t =window.location.href;
-t = t.substring(0, t.lastIndexOf("/") );
-        window.location.replace(t+"/logingin");
+
+
+        var t = window.location.href;
+        t = t.substring(0, t.lastIndexOf("/"));
+        window.location.replace(t + "/logingin");
 
 
 
@@ -37,13 +37,6 @@ t = t.substring(0, t.lastIndexOf("/") );
     }
 });
 
-
-//$('#join-btn').click(function(event) {
-//    $('#modal-wrapper').style.display = 'block';
-//    if (event.target == modal) {
-//        modal.style.display = "none";
-//    }
-//});
 
 
 var jsonData;
@@ -80,22 +73,22 @@ function redraw() {
 }
 
 
-function toggleListener(){
-    
-     var firebaseRef = firebase.database().ref();
-        firebaseRef.child(currentUserID).child("currentSession").on('value', function(snapshot) {
+function toggleListener() {
+
+    var firebaseRef = firebase.database().ref();
+    firebaseRef.child(currentUserID).child("currentSession").on('value', function(snapshot) {
+        strokes = [];
+        strokes = snapshot.val();
+
+        if (strokes == null) {
             strokes = [];
-            strokes = snapshot.val();
-
-            if (strokes == null) {
-                strokes = [];
-            }
+        }
 
 
-            redraw();
-        });
-        
-        $('#currentroomid').text("Current Room ID: " + currentUserID);
+        redraw();
+    });
+
+    $('#currentroomid').text("Current Room ID: " + currentUserID);
 }
 
 function updateFB() {
@@ -156,10 +149,8 @@ function init() {
     $('#save-btn').click(function() {
         window.open(canvas[0].toDataURL("image/png"));
         
-//        canvas[0].toBlob(function(blob) {
-//    saveAs(blob, "pretty image.png");
-//});
-//        canvas.toDataURL;
+        
+
     });
 
     $('#undo-btn').click(function() {
@@ -168,170 +159,145 @@ function init() {
         updateFB();
 
     });
-    
-        $('#popupsave-btn').click(function() {
-      
-$('#modal-wrapper2').css({ display: "block" });
+
+    $('#popupsave-btn').click(function() {
+
+        $('#modal-wrapper2').css({
+            display: "block"
+        });
 
 
     });
-    
-            $('#popupload-btn').click(function() {
-      
-       if( $('.row').length )         // use this if you are using class to check
-{
-     // it exists
-     
-       $('.row').remove();
-}
-//
 
-  
-       var firebaseRef = firebase.database().ref();
+    $('#popupload-btn').click(function() {
+
+        if ($('.row').length)
+        // use this if you are using class to check
+        {
+            // it exists
+
+            $('.row').remove();
+        }
+
+        var firebaseRef = firebase.database().ref();
         firebaseRef.child(currentUser).once('value', function(snapshot) {
-            
+
             var temp = [];
-            
+
             temp = snapshot.val();
-             
-             temp2 = snapshot;
-             
-             
-             
-             
-             snapshot.forEach(function(childSnapshot) {
-      var key = childSnapshot.key; // "ada"
-console.log(key);
 
-if((key.toString().trim() != "currentSession")&&(key.toString().trim() != "imageURL")){
-           
-    var currentRow;
+            temp2 = snapshot;
 
-            currentRow = document.createElement("div");
-            $(currentRow).addClass("row");
-           
-            $("#listofprojects").append(currentRow);
-//        }
-        var col = document.createElement("div");
-//        $(col).addClass("col-lg-4");
-        var projectname = document.createElement("h4");
-        projectname.innerHTML= key; 
-//        $(projectname).addClass("projectname");
-//        var p = document.createElement("p");
-//        $(p).html(key);
-//        $(p).addClass("contentCaption");
-        $(col).append(projectname);
-//        $(col).append(p);
-        $(currentRow).append(col);
-    }
-       
-      // Cancel enumeration
-  }
-    );
-             
-             
-             
-             
+
+
+
+            snapshot.forEach(function(childSnapshot) {
+                var key = childSnapshot.key; // "ada"
+                console.log(key);
+
+                if ((key.toString().trim() != "currentSession") && (key.toString().trim() != "imageURL")) {
+
+                    var currentRow;
+
+                    currentRow = document.createElement("div");
+                    $(currentRow).addClass("row");
+
+                    $("#listofprojects").append(currentRow);
+                    //        }
+                    var col = document.createElement("div");
+                    var projectname = document.createElement("h4");
+                    projectname.innerHTML = key;
+                    $(col).append(projectname);
+                    $(currentRow).append(col);
+                }
+            });
+
+
+
+
             if (temp == null) {
-        alert('Project Not Found');
-            }else{
-                
-         
-            
+                alert('Project Not Found');
+            } else {
+
+
+
             }
 
 
-          
-        });
-//
 
-      
-$('#modal-wrapper3').css({ display: "block" });
+        });
+        //
+
+
+        $('#modal-wrapper3').css({
+            display: "block"
+        });
 
 
     });
-    
-    
-    
-    
+
+
+
+
     $('#saveproject-btn').click(function() {
 
 
- var saveName = $('#savenametext').val();
-   saveName = saveName.trim()
+        var saveName = $('#savenametext').val();
+        saveName = saveName.trim()
 
 
-  var firebaseRef = firebase.database().ref();
-    firebaseRef.child(currentUser).child(saveName).set(strokes);
-    console.log("pushing");
-
-
-//
-//
-//
-//
-//
-//        var firebaseRef = firebase.database().ref();
-//        firebaseRef.child(currentUser).on('value', function(snapshot) {
-//            strokes = [];
-//            strokes = snapshot.val();
-//
-//            if (strokes == null) {
-//                strokes = [];
-//            }
-//
-//
-//            redraw();
-//        });
-    });
-    
-    
-     $('#loadproject-btn').click(function() {
-
-
-
-
-
- var loadName = $('#loadnametext').val();
-   loadName = loadName.trim()
-
-
-//  var firebaseRef = firebase.database().ref();
-//    firebaseRef.child(currentUser).child(loadName).set(strokes);
-//    console.log("pushing");
-
-
-
- var firebaseRef = firebase.database().ref();
-        firebaseRef.child(currentUser).child(loadName).once('value', function(snapshot) {
-            
-            var temp = [];
-            
-            temp = snapshot.val();
-            
-            if (temp == null) {
-        alert('Project Not Found');
-            }else{
-                
-            strokes = snapshot.val();
-  var firebaseRef = firebase.database().ref();
-        firebaseRef.child(currentUserID).child("currentSession").set(strokes);
+        var firebaseRef = firebase.database().ref();
+        firebaseRef.child(currentUser).child(saveName).set(strokes);
         console.log("pushing");
+        alert('Project Saved');
+
+    });
+
+
+    $('#loadproject-btn').click(function() {
+
+
+
+
+        var loadName = $('#loadnametext').val();
+        loadName = loadName.trim()
+
+
+        //  var firebaseRef = firebase.database().ref();
+        //    firebaseRef.child(currentUser).child(loadName).set(strokes);
+        //    console.log("pushing");
+
+
+
+        var firebaseRef = firebase.database().ref();
+        firebaseRef.child(currentUser).child(loadName).once('value', function(snapshot) {
+
+            var temp = [];
+
+            temp = snapshot.val();
+
+            if (temp == null) {
+                alert('Project Not Found');
+            } else {
+
+                strokes = snapshot.val();
+                var firebaseRef = firebase.database().ref();
+                firebaseRef.child(currentUserID).child("currentSession").set(strokes);
+                console.log("pushing");
 
             }
 
 
-          
-        });
-        
 
-   
+        });
+
+
 
 
     });
 
-    
-    
+
+
 
     $('#clear-btn').click(function() {
         strokes = [];
@@ -339,15 +305,16 @@ $('#modal-wrapper3').css({ display: "block" });
         updateFB();
 
     });
-    
-    
- 
-    
-    
+
+
+
+
     $('#join-btn').click(function() {
 
 
-$('#modal-wrapper').css({ display: "block" });
+        $('#modal-wrapper').css({
+            display: "block"
+        });
 
 
     });
@@ -356,54 +323,15 @@ $('#modal-wrapper').css({ display: "block" });
     $('#test3-btn').click(function() {
 
 
-var t =window.location.href;
-t = t.substring(0, t.lastIndexOf("/") );
+        var t = window.location.href;
+        t = t.substring(0, t.lastIndexOf("/"));
 
 
-//        window.location.replace("/loginginv");
-        window.location.replace(t+"/viewimages");
+        window.location.replace(t + "/viewimages");
 
 
-      
-//      
-//       var firebaseRef = firebase.database().ref();
-//        firebaseRef.child(currentUser).once('value', function(snapshot) {
-//            
-//            var temp = [];
-//            
-//            temp = snapshot.val();
-//             
-//             temp2 = snapshot;
-//             
-//             
-//             
-//             
-//             snapshot.forEach(function(childSnapshot) {
-//      var key = childSnapshot.key; // "ada"
-//console.log(key);
-//
-//       $('#h4list').text($('#h4list').text() + key + " \n ");
-//      // Cancel enumeration
-//    });
-//             
-//             
-//             
-//             
-//            if (temp == null) {
-//        alert('Project Not Found');
-//            }else{
-//                
-//         
-//            
-//            }
-//
-//
-//          
-//        });
-// 
-      
     });
-    
+
     $('#test4-btn').click(function() {
 
         var firebaseRef = firebase.storage().ref();
@@ -425,23 +353,23 @@ t = t.substring(0, t.lastIndexOf("/") );
                 console.log("Saved to " + url);
 
 
-  var firebaseDataRef = firebase.database().ref();
-        firebaseDataRef.child(currentUser).child("imageURL").push({
-            caption:name,
-            url: url,
-            user: currentUser
-        });
-        console.log("pushingURL");
+                var firebaseDataRef = firebase.database().ref();
+                firebaseDataRef.child(currentUser).child("imageURL").push({
+                    caption: name,
+                    url: url,
+                    user: currentUser
+                });
+                console.log("pushingURL");
 
-//                $('#testImg').style.height = '400px';
+                //                $('#testImg').style.height = '400px';
 
-                $("#testimg").attr("src",url);
-                
-                
+                $("#testimg").attr("src", url);
+
+
 
             });
         });
-        alert("File Saved");
+        alert("Image Saved To Database Account");
         console.log("pushing");
 
     });
@@ -454,6 +382,34 @@ t = t.substring(0, t.lastIndexOf("/") );
     $('#brush-size').on('input', function() {
         brush.size = this.value;
     });
+    
+//    window.addEventListener('scroll', noscroll);
+//    document.body.style.overflow = 'hidden';
+    
+    window.addEventListener('scroll', function() {
+        
+        
+        
+            canvas.attr({
+        width: window.innerWidth + window.scrollX,
+        height: window.innerHeight + window.scrollY,
+    });
+redraw();
+    
+    
+    
+    });
+
+    window.addEventListener('resize', function(event){
+//        console.log("test");
+        
+        
+            canvas.attr({
+        width: window.innerWidth + window.scrollX,
+        height: window.innerHeight + window.scrollY,
+    });
+redraw();
+});
 
 }
 
@@ -461,21 +417,26 @@ $(init);
 
 //$(toggleListener);
 
-   $('#joinroom-btn').click(function() {
-   
-   var roomID = $('#roomid').val();
-   roomID = roomID.trim()
+$('#joinroom-btn').click(function() {
+
+    var roomID = $('#roomid').val();
+    roomID = roomID.trim()
     var firebaseRef = firebase.database().ref();
-       
-firebaseRef.child(currentUserID).child("currentSession").off();
-   currentUserID = roomID;
-   console.log("Room " +roomID);
-   console.log("user " +currentUserID);
-   
-   
 
-toggleListener();
+    firebaseRef.child(currentUserID).child("currentSession").off();
+    currentUserID = roomID;
+    console.log("Room " + roomID);
+    console.log("user " + currentUserID);
 
 
 
-    });
+    toggleListener();
+
+        alert('Room Joined');
+
+});
+
+
+function noscroll() {
+  window.scrollTo( 0, 0 );
+}
