@@ -33,6 +33,11 @@ Checkpoint 3
 * Save Project Template for loading designs From Database
 * Load Project Templates for From Database
 
+Final Deliverable
+* Fix Bugs
+* Fix UI
+
+
 Project Justification 
 
 Novelty -
@@ -44,3 +49,6 @@ Complexity -
 
 A Link To The GitHub Repo
 https://github.com/andylx96/IST411FinalProject
+
+Link To Ist Deployed Website:
+http://ist411.ist.psu.edu:8085/drawapp/logingin
