@@ -147,8 +147,20 @@ function init() {
     });
 
     $('#save-btn').click(function() {
-        window.open(canvas[0].toDataURL("image/png"));
+//        window.open(canvas[0].toDataURL("image/png"));
         
+        var d=canvas[0].toDataURL("image/png")
+
+        var w=window.open('about:blank','image from canvas');
+w.document.write("<img src='"+d+"' alt='from canvas'/>");
+        
+
+    });
+
+
+    $('#logout-btn').click(function() {
+//        window.open(canvas[0].toDataURL("image/png"));
+       firebase.auth().signOut();
         
 
     });
